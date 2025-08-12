@@ -1,0 +1,266 @@
+/* Animated gradient background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* floating sparkles using pseudo-elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: url('https://svgshare.com/i/12dG.svg') repeat;
+  opacity: 0.2;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100vw 100vh;
+  }
+}
+
+/* story card */
+.story-card {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  animation: fadeInUp 1s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* story heading */
+.story-heading {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* story contetnt */
+.story-content {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 2px 18px 0 rgba(161, 196, 253, 0.1);
+  font-family: 'Merriweather', serif;
+  /* animation: contentFadeIn 1.2s; */
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* moral of the story */
+.moral-section {
+  margin: 2rem auto 0 auto;
+  padding: 1.5rem 2rem;
+  max-width: 600px;
+  background: rgba(255, 255, 200, 0.45);
+  border-left: 6px solid #ffd700;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0 2px 24px 0 rgba(255, 215, 0, 0.15);
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  color: #7a5c00;
+  position: relative;
+  animation: moralFadeIn 1.5s;
+}
+
+.moral-section::before {
+  content: '✨ Moral of the Story ✨';
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #bfa100;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-align: left;
+  animation: moralTitleGlow 2s infinite alternate;
+}
+
+@keyframes moralFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moralTitleGlow {
+  from {
+    text-shadow: 0 0 6px #ffe066, 0 0 12px #ffd700;
+  }
+  to {
+    text-shadow: 0 0 16px #fffbe6, 0 0 24px #ffd700;
+  }
+}
+
+/* error message */
+.error-msg {
+  text-align: center;
+  color: red;
+}
+
+/* refresh button */
+.refresh-btn-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.refresh-btn {
+  background: linear-gradient(90deg, #fcb69f, #a1c4fd);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  /* font-size: 1.2rem; */
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.refresh-btn:hover {
+  transform: scale(1.08) rotate(-5deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.refresh-btn img {
+  width: 42px;
+}
+
+/* Responsive styles for tablet */
+@media (max-width: 900px) {
+  .story-card {
+    max-width: 80vw;
+    margin: 3rem auto;
+  }
+  .story-heading {
+    font-size: 2rem;
+  }
+  .story-content {
+    font-size: 18px;
+  }
+  .moral-section {
+    max-width: 70vw;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .error-msg p {
+    margin-bottom: 0rem;
+  }
+  .refresh-btn-wrapper {
+    margin-top: 1.5rem;
+  }
+  .refresh-btn {
+    padding: 0.5rem 2rem;
+  }
+
+  .refresh-btn:active {
+    transform: scale(1.08) rotate(-10deg);
+  }
+
+  .refresh-btn img {
+    width: 36px;
+  }
+}
+/* Responsive styles for mobile */
+
+@media (max-width: 460px) {
+  .story-card {
+    max-width: 80vw;
+    margin: 2rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+  .story-heading {
+    font-size: 1.5rem;
+    padding: 0rem 0.5rem;
+  }
+  .story-content {
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 1rem 1.5rem;
+  }
+
+  .moral-section {
+    font-size: 18px;
+    margin-top: 1.5rem;
+  }
+  .error-msg {
+    font-size: 14px;
+    padding: 0.5rem;
+    padding-bottom: 0rem;
+  }
+  .refresh-btn-wrapper {
+    margin-top: 1rem;
+  }
+  .refresh-btn {
+    padding: 0.75rem 1.75rem;
+    border-radius: 25px;
+  }
+  .refresh-btn img {
+    width: 28px;
+  }
+}

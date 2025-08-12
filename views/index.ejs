@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+
+<div class="story-card">
+  <div class="story-heading"><%= data.title %></div>
+
+  <div class="story-content"><%= data.story %></div>
+
+  <div class="moral-section"><%= data.moral %></div>
+
+  <% if (locals.errorMsg) { %>
+  <div class="error-msg">
+    <p><%= errorMsg %></p>
+  </div>
+  <% } %>
+
+  <div class="refresh-btn-wrapper">
+    <a href="/">
+      <button class="refresh-btn" type="submit" title="Load another story">
+        <img src="images/reload.png" alt="reload_img" />
+      </button>
+    </a>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
