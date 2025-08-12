@@ -26,7 +26,7 @@ A visually engaging web app that displays random moral stories fetched from a pu
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/moral-stories-webapp.git
+   git clone https://github.com/ziauddinziya07/Capstone-Project-Moral-Stories-Web-Application.git
    cd moral-stories-webapp
    ```
 
